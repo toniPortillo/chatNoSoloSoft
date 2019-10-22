@@ -60,6 +60,7 @@ GEM
     bootsnap (1.4.5)
       msgpack (~> 1.0)
     bson (4.5.0)
+    bson_ext (1.5.1)
     builder (3.2.3)
     byebug (11.0.1)
     concurrent-ruby (1.1.5)
@@ -201,6 +202,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (>= 1.4.2)
+  bson_ext
   byebug
   database_cleaner
   factory_bot_rails (~> 4.0)
