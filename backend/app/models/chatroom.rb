@@ -1,5 +1,5 @@
 class Chatroom
   include Mongoid::Document
   field :name, type: String
-  has_many :messages
+  embeds_many :messages
 end

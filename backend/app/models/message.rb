@@ -1,8 +1,6 @@
-require 'user.rb'
-
 class Message
   include Mongoid::Document
   field :body, type: String
-  belongs_to :user
-  belongs_to :room
+  embedded_in :chatroom
+  belongs_to :user, inverse_of: nil
 end
