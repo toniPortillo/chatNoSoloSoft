@@ -1,7 +1,7 @@
 FactoryBot.define do
-  factory :chatroom do
+  factory :conversation, class: Conversation do
     name { FFaker::Name.unique.name }
     association :user, factory: :user
-    association :conversation, factory: :conversation
+    association :message, factory: :message
   end
 end

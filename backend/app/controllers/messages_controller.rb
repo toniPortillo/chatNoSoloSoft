@@ -1,15 +1,14 @@
 class MessagesController < ApplicationController
-    before_action :set_chatroom, only: [:index, :create]
 
-    # GET /chatrooms/:id/messages
+    # GET /messages
     def index
-        @messages = @chatroom.messages.all
+        @messages = Messages.all
         json_response (@messages)
     end
 
-    # POST /chatrooms/:id/messages
+    # POST /messages
     def create
-        @message = @chatroom.messages.create!(message_params)
+        @message = (message_params)
         
         if @message.save
             json_response(@message, :created) 
@@ -19,15 +18,12 @@ class MessagesController < ApplicationController
     end
 
     private 
-        def set_chatroom
-            @chatroom = Chatroom.find(params[:chatroom_id])
-        end
 
         def set_message
             @message = Message.find(params[:id])        
         end
 
         def message_params
-            params.require(:message).permit(:body, :user_id)
+            params.require(:message).permit(:body)
         end
 end

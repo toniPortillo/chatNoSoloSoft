@@ -4,4 +4,6 @@ class User
 
   has_and_belongs_to_many :conversations, dependent: :destroy
   has_many :messages
+
+  validates_presence_of :name
 end

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Users", type: :request do
-  let(:user) { build(:user) }
+  let(:users) { build(:user, :with_a_conversation_and_message) }
   let(:first_user) { User.first }
   
   describe "GET /users" do
