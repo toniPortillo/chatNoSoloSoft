@@ -1,6 +1,9 @@
 class Message
   include Mongoid::Document
-  field :body, type: String
-  embedded_in :chatroom, :inverse_of => :messages
-  belongs_to :user, inverse_of: nil
+  field :content, type: String
+  
+  belongs_to :conversation
+  belongs_to :user
+
+  validates_presence_of :content
 end

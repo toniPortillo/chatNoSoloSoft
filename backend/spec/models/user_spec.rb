@@ -13,13 +13,15 @@ describe User, :type=>:model, :orm=>:mongoid do
   end
 
   context "Usuario creado (let)" do
-    let(:user) { User.create(:name => "test") }
+    let(:user) { User.create(:name => "test user") }
     after(:each) do
       user.delete
     end
 
     it { expect(user).to be_persisted }
-    it { expect(user.name).to eq("test") }
+    it { expect(user.name).to eq("test user") }
     it { expect(User.find(user.id)).to_not be_nil }
+    it { is_expected.to have_and_belong_to_many(:conversations).with_dependent(:destroy) }
+    it { is_expected.to have_many(:messages) }
   end
 end
