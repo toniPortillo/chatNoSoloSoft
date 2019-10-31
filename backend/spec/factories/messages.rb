@@ -1,7 +1,7 @@
 FactoryBot.define do
-  factory :message do 
-    content {FFaker::DizzleIpsum.paragraph}
-    association :user, factory: :user
-    association :conversation, factory: :conversation
+  factory :message, class: Message do 
+    content {FFaker::AWS.product_description}
+    association :conversations, factory: :conversation
+    association :users, factory: :user
   end
 end
