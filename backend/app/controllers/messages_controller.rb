@@ -13,7 +13,6 @@ class MessagesController < ApplicationController
         if @message.save
             json_response(@message, :created) 
         else
-            puts @message.errors.details
             json_response(@message.errors, :unprocessable_entity)
         end
     end
