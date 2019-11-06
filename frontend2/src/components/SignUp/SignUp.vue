@@ -12,50 +12,50 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters } from 'vuex'
 export default {
-    name: "SignUp",
-    data() {
-        return {
-            username: "",
-            error: false
-        };
-    },
-    computed: {
-        ...mapGetters({ currentUser: "currentUser" })
-    },
-    created() {
-        this.checkCurrentSignUp();
-    },
-    updated() {
-        this.checkCurrentSignUp();
-    },
-    methods: {
-        signup() {
-            this.$http
-                .post("/users", {name: this.username})
-                .then(res => this.signupSuccessful(res))
-                .catch(() => this.signupFailed());
-        },
-        signupSuccessful(res) {
-            if (!res.data.auth_token) {
-                this.signupFailed();
-                return;
-            }
-            this.error = false;
-            localStorage.token = res.data.auth_token;
-            this.$store.dispatch("signup");
-        },
-        signupFailed() {
-            this.error = "Sign up failed!";
-            this.$store.dispatch("logout");
-            delete localStorage.token;
-        },
-        checkCurrentSignUp() {
-            if (this.currentUser) {
-                this.$router.replace("/");
-            }
-        }
+  name: 'SignUp',
+  data () {
+    return {
+      username: '',
+      error: false
     }
-};
+  },
+  computed: {
+    ...mapGetters({ currentUser: 'currentUser' })
+  },
+  created () {
+    this.checkCurrentSignUp()
+  },
+  updated () {
+    this.checkCurrentSignUp()
+  },
+  methods: {
+    signup () {
+      this.axios
+        .post('/users', {name: this.username})
+        .then(res => this.signupSuccessful(res))
+        .catch(() => this.signupFailed())
+    },
+    signupSuccessful (res) {
+      if (!res.data.auth_token) {
+        this.signupFailed()
+        return
+      }
+      this.error = false
+      localStorage.token = res.data.auth_token
+      this.$store.dispatch('signup')
+    },
+    signupFailed () {
+      this.error = 'Sign up failed!'
+      this.$store.dispatch('logout')
+      delete localStorage.token
+    },
+    checkCurrentSignUp () {
+      if (this.currentUser) {
+        this.$router.replace('/')
+      }
+    }
+  }
+}
 </script>
