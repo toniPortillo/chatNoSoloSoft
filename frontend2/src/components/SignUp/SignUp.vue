@@ -6,7 +6,6 @@
             <label for="inputUsername" class="sr-only">Username</label>
             <input v-model="username" type="username" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
-            <router-link class="btn btn-lg btn-primary btn-block btn-login" to="login">Login if you have an account</router-link>
         </form>
     </div>
 </template>
@@ -39,22 +38,22 @@ export default {
         .catch(() => this.signupFailed())
     },
     signupSuccessful (res) {
-      if (!res.data.auth_token) {
+      if (!res.data) {
         this.signupFailed()
         return
       }
       this.error = false
-      localStorage.token = res.data.auth_token
+      localStorage.setItem('user', JSON.stringify(res.data))
       this.$store.dispatch('signup')
     },
     signupFailed () {
       this.error = 'Sign up failed!'
       this.$store.dispatch('logout')
-      delete localStorage.token
+      localStorage.removeItem('user')
     },
     checkCurrentSignUp () {
       if (this.currentUser) {
-        this.$router.replace('/')
+        this.$router.replace(this.$route.query.redirect)
       }
     }
   }

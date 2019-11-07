@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <template v-if="currentUser">
+      <div class="user" v-if="currentUser">{{ currentUser.name }}</div>
       <Navbar></Navbar>
     </template>
     <div class="container-fluid">
@@ -34,7 +35,7 @@ export default {
         if (this.$route.path === '/') {
           this.$router.push('/')
         } else {
-          this.$router.push('/helloWorld')
+          this.$router.push('/')
         }
       }
     }

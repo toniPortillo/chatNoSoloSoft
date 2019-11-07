@@ -1,18 +1,23 @@
-import User from '@/models/User'
 import * as MutationTypes from './mutations-type'
 
+const user = JSON.parse(localStorage.getItem('user'))
+
 const initialState = {
-  user: User.from(localStorage.token)
+  user: {
+    _id: user._id,
+    conversations_ids: user.conversations_ids,
+    name: user.name
+  }
 }
 
 export const state = Object.assign({}, initialState)
 
 const mutations = {
   [MutationTypes.SIGNUP] (state) {
-    state.user = User.from(localStorage.user)
+    state.user = JSON.parse(localStorage.getItem('user'))
   },
   [MutationTypes.LOGIN] (state) {
-    state.user = User.from(localStorage.user)
+    state.user = JSON.parse(localStorage.getItem('user'))
   },
   [MutationTypes.LOGOUT] (state) {
     state.user = null
