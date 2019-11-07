@@ -32,8 +32,9 @@ export default {
   },
   methods: {
     signup () {
-      this.axios
-        .post('/users', {name: this.username})
+      this.axios.post('/users', {
+        name: this.username
+      })
         .then(res => this.signupSuccessful(res))
         .catch(() => this.signupFailed())
     },
