@@ -1,5 +1,5 @@
-export const ROOM_PUBLISH = 'roomPublish'
-export const ROOM_RESET_STATE = 'resetRoomState'
+export const CONVERSATION_PUBLISH = 'conversationPublish'
+export const CONVERSATION_RESET_STATE = 'resetConversationState'
 export const MESSAGE_CREATE = 'createMessage'
-export const FETCH_ROOM = 'fetchRoom'
+export const FETCH_CONVERSATION = 'fetchConversation'
 export const FETCH_MESSAGES = 'fetchMessages'
