@@ -45,6 +45,7 @@ export default {
       this.error = false
       localStorage.setItem('user', JSON.stringify(res.data))
       this.$store.dispatch('signup')
+      this.$router.push('/conversations?redirect=' + `${this.$route.path}`)
     },
     signupFailed () {
       this.error = 'Sign up failed!'
@@ -53,7 +54,7 @@ export default {
     },
     checkCurrentSignUp () {
       if (this.currentUser) {
-        this.$router.replace(this.$route.query.redirect)
+        this.$router.replace(this.$route.query.redirect || '/conversations')
       }
     }
   }

@@ -1,12 +1,18 @@
 import * as MutationTypes from './mutations-type'
 
-const user = JSON.parse(localStorage.getItem('user'))
-
-const initialState = {
-  user: {
-    _id: user._id,
-    conversations_ids: user.conversations_ids,
-    name: user.name
+let initialState = {}
+if (JSON.parse(localStorage.getItem('user')) === null) {
+  initialState = {
+    user: null
+  }
+} else {
+  const user = JSON.parse(localStorage.getItem('user'))
+  initialState = {
+    user: {
+      _id: user._id,
+      conversations_ids: user.conversations_ids,
+      name: user.name
+    }
   }
 }
 

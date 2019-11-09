@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import SignUp from '@/components/SignUp/SignUp'
 import HelloWorld from '@/components/HelloWorld'
 import Logout from '@/components/Logout/Logout'
+import ConversationList from '@/components/Conversations/List'
 
 Vue.use(Router)
 
@@ -22,6 +23,11 @@ export default new Router({
       path: '/logout',
       name: 'Logout',
       component: Logout
+    },
+    {
+      path: '/conversations',
+      name: 'Conversations',
+      component: ConversationList
     }
   ]
 })
