@@ -19,12 +19,13 @@ export default {
   name: 'List',
   data () {
     return {
-      coversations: []
+      conversations: []
     }
   },
   created () {
     this.axios.get('/conversations')
       .then(res => {
+        console.log(res.data)
         this.buildConversationList(res.data)
       })
       .catch(() => {

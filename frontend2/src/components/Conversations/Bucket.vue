@@ -12,7 +12,7 @@
 <script>
 export default {
   name: 'Bucket',
-  propos: ['conversation'],
+  props: ['conversation'],
   data () {
     return this.conversation.name
   }
