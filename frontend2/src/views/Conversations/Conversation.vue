@@ -13,7 +13,8 @@
 </template>
 
 <script>
-/* import { mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
+import store from '@/store/index'
 import {
   FETCH_CONVERSATION,
   FETCH_MESSAGES
@@ -21,18 +22,12 @@ import {
 
 export default {
   name: 'Conversation',
-  props: {
-    id: {
-      type: String,
-      required: true
-    }
-  },
   created () {
-    this.$store.dispatch(FETCH_CONVERSATION, this.$route.params.id),
-    this.$store.dispatch(FETCH_MESSAGES, this.$route.params.id)
+    store.dispatch(FETCH_CONVERSATION, this.$route.params.id)
+    store.dispatch(FETCH_MESSAGES, this.$route.params.id)
   },
   computed: {
-    ...mapGetters('conversation')
+    ...mapGetters({ conversation: 'conversation' })
   }
-} */
+}
 </script>

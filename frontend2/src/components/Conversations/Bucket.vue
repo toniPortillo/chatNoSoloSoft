@@ -1,9 +1,6 @@
 <template>
   <div class="col room text-center">
-    <router-link :to="{
-      name: 'Conversation',
-      params: { name: `${conversation.name}`, id: `${conversation.id}`}
-      }">
+    <router-link :to="{ name: 'Conversation', params: { id: `${conversation._id}`} }">
       <H3>{{conversation.name}}</H3>
     </router-link>
   </div>

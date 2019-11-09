@@ -7,7 +7,7 @@
         </router-link>
     </div>
     <div class='row'>
-      <Bucket v-for="conversation in conversations" :key="conversation.id" :conversation="conversation" v-show=conversation.name></Bucket>
+      <Bucket v-for="conversation in conversations" :key="conversation._id" :conversation="conversation" v-show=conversation.name></Bucket>
     </div>
   </div>
 </template>
@@ -25,7 +25,6 @@ export default {
   created () {
     this.axios.get('/conversations')
       .then(res => {
-        console.log(res.data)
         this.buildConversationList(res.data)
       })
       .catch(() => {
