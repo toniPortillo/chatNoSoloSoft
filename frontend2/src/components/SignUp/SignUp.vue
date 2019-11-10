@@ -45,7 +45,7 @@ export default {
       this.error = false
       localStorage.setItem('user', JSON.stringify(res.data))
       this.$store.dispatch('signup')
-      this.$router.push('/conversations?redirect=' + `${this.$route.path}`)
+      this.$router.push('/conversations')
     },
     signupFailed () {
       this.error = 'Sign up failed!'

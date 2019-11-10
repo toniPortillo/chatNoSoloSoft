@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import SignUp from '@/components/SignUp/SignUp'
 import HelloWorld from '@/components/HelloWorld'
 import Logout from '@/components/Logout/Logout'
-import ConversationList from '@/components/Conversations/List'
+import ConversationsList from '@/components/Conversations/List'
 import Conversation from '@/views/Conversations/Conversation'
 
 Vue.use(Router)
@@ -28,7 +28,7 @@ export default new Router({
     {
       path: '/conversations',
       name: 'Conversations',
-      component: ConversationList
+      component: ConversationsList
     },
     {
       path: '/conversations/:id',

@@ -1,13 +1,16 @@
 <template>
   <div>
     <div class="page-header">
+    <div>
+      <input type="text" name="search" v-model="search" placeholder="Search Chat Room" class="form-control" />
+    </div>
       <h1>All Chat rooms</h1>
         <router-link :to="{name: 'ConversationNew'}" replace>
           <button type="button" class="btn btn-primary">Add new conversation</button>
         </router-link>
     </div>
     <div class='row'>
-      <Bucket v-for="conversation in conversations" :key="conversation._id" :conversation="conversation" v-show=conversation.name></Bucket>
+      <Bucket v-for="conversation in conversations" :key="conversation.id" :conversation="conversation" v-show="searchMatch(conversation.name)"></Bucket>
     </div>
   </div>
 </template>
@@ -19,6 +22,7 @@ export default {
   name: 'List',
   data () {
     return {
+      search: '',
       conversations: []
     }
   },
@@ -34,6 +38,14 @@ export default {
   methods: {
     buildConversationList (data) {
       this.conversations = data
+    },
+    searchMatch (conversationName) {
+      return conversationName.toLowerCase().match(this.searchRegExp)
+    }
+  },
+  computed: {
+    searchRegExp () {
+      return new RegExp(`(.*)${this.search}(.*)`)
     }
   },
   components: {
