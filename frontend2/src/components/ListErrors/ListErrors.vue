@@ -1,6 +1,6 @@
 <template v-show="errors">
   <ul class="error-messages">
-    <li v-for="(err) in errors" key="key">
+    <li v-for="(err) in errors" :key="err">
       {{err}}
     </li>
   </ul>

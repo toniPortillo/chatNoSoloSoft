@@ -4,7 +4,7 @@
     <div>
       <input type="text" name="search" v-model="search" placeholder="Search Chat Room" class="form-control" />
     </div>
-      <h1>All Chat rooms</h1>
+      <h2>All Chat rooms</h2>
         <router-link :to="{name: 'ConversationNew'}" replace>
           <button type="button" class="btn btn-primary">Add new conversation</button>
         </router-link>

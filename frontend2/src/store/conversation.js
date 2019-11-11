@@ -3,7 +3,9 @@ import { conversationsService, messagesService } from '@/common/apiServices'
 import {
   MESSAGE_CREATE,
   FETCH_CONVERSATION,
-  FETCH_MESSAGES
+  FETCH_MESSAGES,
+  CONVERSATION_PUBLISH,
+  CONVERSATION_RESET_STATE
 } from './actions-type'
 import { SET_CONVERSATION, RESET_STATE, SET_MESSAGES } from './mutations-type'
 
@@ -35,6 +37,12 @@ export const actions = {
     return messagesService.post(payload).then(() => {
       context.dispatch(FETCH_MESSAGES)
     })
+  },
+  [CONVERSATION_PUBLISH] ({ state }) {
+    return conversationsService.create(state)
+  },
+  [CONVERSATION_RESET_STATE] ({commit}) {
+    commit(RESET_STATE)
   }
 }
 

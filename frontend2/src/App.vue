@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <template v-if="currentUser">
-      <div class="user" v-if="currentUser">{{ currentUser.name }}</div>
+      <div class="user" v-if="currentUser">
+        <h1>{{ currentUser.name }}</h1>
+      </div>
       <Navbar></Navbar>
     </template>
     <div class="container-fluid">
