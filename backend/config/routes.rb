@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
-  root 'sessions#new'
-
   resources :users
-  resources :sessions
-  resources :conversations
-  resources :messages
+  resources :conversations do
+    resources :messages
+  end
 
   mount ActionCable.server => '/cable'
 end

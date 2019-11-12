@@ -7,14 +7,9 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex"
 export default {
-  name: "Message",
+  name: 'Message',
   props: {
-    id: {
-      type: String,
-      required: true
-    },
     message: {
       type: Object,
       required: true

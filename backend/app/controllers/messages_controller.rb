@@ -1,12 +1,11 @@
 class MessagesController < ApplicationController
-
-    # GET /messages
+    before_action :set_messages, only: [:index]
+    # GET /conversations/:id/messages
     def index
-        @messages = Message.all
         json_response (@messages)
     end
 
-    # POST /messages
+    # POST /conversations/:id/messages
     def create
         @message = Message.new(message_params)
         
@@ -19,11 +18,11 @@ class MessagesController < ApplicationController
 
     private 
 
-        def set_message
-            @message = Message.find(params[:id])        
+        def set_messages
+            @messages = Message.where(conversation_id: params[:conversation_id])        
         end
 
         def message_params
-            params.require(:message).permit(:content, :conversation_id, :user_id)
+            params.require(:message).permit(:content, :created_by, :conversation_id, :user_id)
         end
 end
