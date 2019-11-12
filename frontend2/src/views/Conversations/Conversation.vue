@@ -14,7 +14,7 @@
         <MessageEditor :id="id">
         </MessageEditor>
         <div class="card-messages">
-          <Message v-for="(message, index) in filteredItems " :message="message" :key="index">
+          <Message v-for="(message, index) in filteredItems " :id="id" :message="message" :key="index">
           </Message>
         </div>
       </div>
@@ -60,11 +60,12 @@ export default {
         console.log('disconnected')
       },
       received: (data) => {
-        this.message.unshift(data.message)
+        console.log(data.message)
+        this.messages.unshift(data.message)
       }
     })
     store.dispatch(FETCH_CONVERSATION, this.$route.params.id)
-    store.dispatch(FETCH_MESSAGES)
+    store.dispatch(FETCH_MESSAGES, this.$route.params.id)
   },
   computed: {
     ...mapGetters(['conversation', 'messages']),

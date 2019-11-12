@@ -28,14 +28,15 @@ export const actions = {
       return data
     })
   },
-  [FETCH_MESSAGES] (context) {
-    return messagesService.getAll().then(({data}) => {
+  [FETCH_MESSAGES] (context, conversationId) {
+    return messagesService.get(conversationId).then(({ data }) => {
       context.commit(SET_MESSAGES, data)
     })
   },
   [MESSAGE_CREATE] (context, payload) {
-    return messagesService.post(payload).then(() => {
-      context.dispatch(FETCH_MESSAGES)
+    console.log(payload)
+    return messagesService.post(payload.id, payload.message).then(() => {
+      context.dispatch(FETCH_MESSAGES, payload.id)
     })
   },
   [CONVERSATION_PUBLISH] ({ state }) {

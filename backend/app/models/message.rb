@@ -6,5 +6,6 @@ class Message
   belongs_to :conversation
   belongs_to :user
 
-  validates_presence_of :content, :created_by
+  validates_presence_of :content 
+  validates_presence_of :created_by
 end

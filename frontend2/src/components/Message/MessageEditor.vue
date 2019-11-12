@@ -1,8 +1,6 @@
 <template>
   <div>
-    <list-errors :errors="errors">
-    </list-errors>
-    <form class="card message-form" v-on:submit.prevent="onSubmit(message)">
+    <form class="card message-form" v-on:submit.prevent="onSubmit(id, message)">
       <div class="card-block">
         <textarea class="form-control" v-model="message" placeholder="Write a message..." rows="3">
         </textarea>
@@ -40,9 +38,17 @@ export default {
     }
   },
   methods: {
-    onSubmit (message) {
+    onSubmit (id, message) {
       this.$store
-        .dispatch(MESSAGE_CREATE, { message })
+        .dispatch(MESSAGE_CREATE, {
+          id,
+          message: {
+            content: message,
+            created_by: JSON.parse(localStorage.getItem('user')).name,
+            conversation_id: this.id,
+            user_id: JSON.parse(localStorage.getItem('user'))._id.$oid
+          }
+        })
         .then(() => {
           this.message = null
           this.errors = {}

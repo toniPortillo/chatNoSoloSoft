@@ -7,13 +7,13 @@ class MessagesController < ApplicationController
 
     # POST /conversations/:id/messages
     def create
-        @message = Message.new(message_params)
+        conversation = Conversation.find(params[:conversation_id])
+        message = Message.new(message_params)
         
-        if @message.save
-            json_response(@message, :created) 
-        else
-            json_response(@message.errors, :unprocessable_entity)
+        if message.save
+            ActionCable.server.broadcast "conversation_#{conversation.id}", message: message
         end
+        json_response(message, :created)
     end
 
     private 

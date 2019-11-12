@@ -1,9 +1,6 @@
 import axios from '@/backend/vue-axios/axios'
 
 const apiService = {
-  getAll (resource) {
-    return axios.get(`${resource}`)
-  },
   post (resource, params) {
     return axios.post(`${resource}`, params)
   },
@@ -23,22 +20,23 @@ export const conversationsService = {
     })
   },
   get (id) {
-    return apiService.get('/conversations', id)
+    return apiService.get('conversations', id)
   }
 }
 
 export const messagesService = {
-  getAll () {
-    return apiService.getAll('/messages')
-  },
   get (id) {
-    return apiService.get('/messages', id)
+    if (typeof id !== 'string') {
+      throw new Error('messagesService.get() conversation required to fetch messages')
+    }
+    return apiService.get('conversations', `${id}/messages`)
   },
-  post (params) {
-    return apiService.post('/messages', {
-      content: params.message.conten,
-      user_id: params.message.user_id,
-      conversation_id: params.message.conversation_id
+  post (id, payload) {
+    return apiService.post(`conversations/${id}/messages`, {
+      content: payload.content,
+      created_by: payload.created_by,
+      conversation_id: payload.conversation_id,
+      user_id: payload.user_id
     })
   }
 }
