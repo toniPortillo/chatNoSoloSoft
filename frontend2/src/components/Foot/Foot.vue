@@ -1,7 +1,7 @@
 <template>
     <footer>
         <hr/>
-        <p class="foot">Built by <a href="https://github.com/toniPortillo">Toni Portillo</a></p>
+        <p class="foot">Construido por <a href="https://github.com/toniPortillo">Toni Portillo</a></p>
     </footer>
 </template>
 

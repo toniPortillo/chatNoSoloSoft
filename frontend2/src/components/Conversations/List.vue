@@ -2,11 +2,11 @@
   <div>
     <div class="page-header">
     <div>
-      <input type="text" name="search" v-model="search" placeholder="Search Chat Room" class="form-control" />
+      <input type="text" name="search" v-model="search" placeholder="Buscar Sala" class="form-control" />
     </div>
-      <h2>All Chat rooms</h2>
+      <h2>Salas</h2>
         <router-link :to="{name: 'ConversationNew'}" replace>
-          <button type="button" class="btn btn-primary">Add new conversation</button>
+          <button type="button" class="btn btn-primary">Añadir Sala</button>
         </router-link>
     </div>
     <div class='row'>

@@ -2,11 +2,11 @@
   <div>
     <form class="card message-form" v-on:submit.prevent="onSubmit(id, message)">
       <div class="card-block">
-        <textarea class="form-control" v-model="message" placeholder="Write a message..." rows="3">
+        <textarea class="form-control" v-model="message" placeholder="Escribe un mensaje..." rows="3">
         </textarea>
       </div>
       <div class="card-footer">
-        <button class="btn btn-sm btn-primary">Post Message</button>
+        <button class="btn btn-sm btn-primary">Enviar</button>
       </div>
     </form>
   </div>

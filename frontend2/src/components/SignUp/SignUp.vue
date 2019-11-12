@@ -1,11 +1,11 @@
 <template>
     <div class="signup-wrapper border border-light">
         <form class="form-signup" @submit.prevent="signup">
-            <h2 class="form-signup-heading">Please sign up</h2>
+            <h2 class="form-signup-heading">CHAT!</h2>
             <div class="alert alert-danger" v-if="error">{{ error }}</div>
-            <label for="inputUsername" class="sr-only">Username</label>
-            <input v-model="username" type="username" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+            <label for="inputUsername" class="sr-only"></label>
+            <input v-model="username" type="username" id="inputUsername" class="form-control" placeholder="Usuario" required autofocus>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
         </form>
     </div>
 </template>

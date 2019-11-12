@@ -11,14 +11,14 @@
                   type="text"
                   class="form-control form-control-lg"
                   v-model="conversation.name"
-                  placeholder="Conversation Name">
+                  placeholder="Nombre">
               </fieldset>
             </fieldset>
             <button
               :disabled="inProgress"
               class="btn btn-lg pull-xs-right btn-primary"
               type="submit">
-              Publish Conversation
+              Guardar
             </button>
           </form>
         </div>

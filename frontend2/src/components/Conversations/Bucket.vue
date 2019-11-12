@@ -5,7 +5,7 @@
       params: { name: conversation.name, id: conversation._id.$oid }
       }">
       <img :src="image" />
-      <H3>{{conversation._id.$oid}}</H3>
+      <H3>{{conversation.name}}</H3>
     </router-link>
   </div>
 </template>
