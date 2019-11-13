@@ -2,10 +2,12 @@
 Prueba de chat que permita a distintos usuarios acceder a diferentes salas de chat y poder comunicarse en tiempo real. Hecha con Ruby on Rails y Vuejs
 
 Para el desarrollo se ha utilizado:
+    
     MongoDB en su versión 4.2.0
     Rails en su versión 6.0.0
     VueJS en su versión 2.6.10
 Pasos para instalar backend y frontend:
+    
     1.git clone https://github.com/toniPortillo/chatNoSoloSoft.git
     2.cd chatNoSoloSoft
 -----------------------------------------------------------------------------------------------
